@@ -5,11 +5,12 @@ gem 'sqlite3'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'therubyracer', platforms: :ruby
+# gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
 gem 'turbolinks'
 
+gem 'haml-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -27,6 +28,7 @@ end
 
 group :test do
   gem 'minitest-rails-capybara'
+  gem 'minitest-reporters'
 end
 
 group :development do
