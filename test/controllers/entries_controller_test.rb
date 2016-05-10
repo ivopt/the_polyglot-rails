@@ -6,7 +6,7 @@ describe EntriesController, :controller do
       get :index
 
       assert_response :success
-      assert_not_nil assigns(:articles)
+      assert_not_nil assigns(:entries)
     end
   end
 end

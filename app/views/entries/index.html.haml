@@ -1,0 +1,8 @@
+%h1 Entries
+
+%ul
+  - @entries.each do |entry|
+    %li
+      .title= entry.title
+      .published= entry.published_on
+
