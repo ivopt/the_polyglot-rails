@@ -2,11 +2,6 @@ require 'test_helper'
 
 describe "Entries", :capybara do
   describe '/entries' do
-    it 'responds HTTP 200 OK' do
-      visit '/entries'
-      page.status_code.must_equal 200
-    end
-
     it 'lists existing entries' do
       # Given a set of entries
       entry1 = create(:entry, title: 'entry one')
