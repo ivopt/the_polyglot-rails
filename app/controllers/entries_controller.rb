@@ -4,4 +4,8 @@ class EntriesController < ApplicationController
     @entries = Entry.all
   end
 
+  def show
+    @entry = Entry.find(params[:id])
+  end
+
 end

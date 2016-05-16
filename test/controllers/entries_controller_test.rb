@@ -7,9 +7,23 @@ describe EntriesController, :controller do
       assert_response :success
     end
 
-    it 'assigns the @index variable for the views to pick up' do
+    it 'assigns the @entries variable for the views to pick up' do
       get :index
       assert_not_nil assigns(:entries)
+    end
+  end
+
+  describe '#show' do
+    let(:existing_entry) { create(:entry) }
+
+    it 'respondes with HTTP success' do
+      get :show, id: existing_entry.id
+      assert_response :success
+    end
+
+    it 'assigns the @entry variable' do
+      get :show, id: existing_entry.id
+      assert_not_nil assigns(:entry)
     end
   end
 end
