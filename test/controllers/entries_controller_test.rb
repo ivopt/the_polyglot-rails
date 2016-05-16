@@ -14,16 +14,25 @@ describe EntriesController, :controller do
   end
 
   describe '#show' do
-    let(:existing_entry) { create(:entry) }
+    describe 'with an existing entry' do
+      let(:existing_entry) { create(:entry) }
 
-    it 'respondes with HTTP success' do
-      get :show, id: existing_entry.id
-      assert_response :success
+      it 'respondes with HTTP success' do
+        get :show, id: existing_entry.id
+        assert_response :success
+      end
+
+      it 'assigns the @entry variable' do
+        get :show, id: existing_entry.id
+        assert_not_nil assigns(:entry)
+      end
     end
 
-    it 'assigns the @entry variable' do
-      get :show, id: existing_entry.id
-      assert_not_nil assigns(:entry)
+    describe 'with a non existing entry' do
+      it 'responds with not found error' do
+        get :show, id: 12345
+        assert_response :not_found
+      end
     end
   end
 end
